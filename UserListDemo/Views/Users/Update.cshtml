@@ -1,0 +1,44 @@
+﻿@model UserListDemo.Models.UserModel
+
+@{
+    ViewBag.Title = "Edit user from DB";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2>Editing User:</h2>
+                <h1>@Model.FName @Model.LName</h1>
+            </hgroup>
+        </div>
+    </section>
+}
+
+@using (Html.BeginForm("Update", "Users", FormMethod.Post, new { @class = "edituser" }))
+{
+    @Html.LabelFor(x => x.FName)
+    @Html.TextBoxFor(x => x.FName)
+    @Html.ValidationMessageFor(x => x.FName)
+    @Html.LabelFor(x => x.LName)
+    @Html.TextBoxFor(x => x.LName)
+    @Html.ValidationMessageFor(x => x.LName)
+    @Html.LabelFor(x => x.Email)
+    @Html.TextBoxFor(x => x.Email)
+    @Html.ValidationMessageFor(x => x.Email)
+    @Html.LabelFor(x => x.Phone)
+    @Html.TextBoxFor(x => x.Phone)
+    @Html.LabelFor(x => x.Age)
+    @Html.TextBoxFor(x => x.Age)
+    @Html.ValidationMessageFor(x => x.Age)
+    <br />
+    <input type="submit" name="edit" value="Save data" />
+}
+
+@using (Html.BeginForm("Delete", "Users", FormMethod.Post)) { 
+    @Html.HiddenFor(x => x.ID)
+    <input type="submit" name="edit" value="Delete" />
+}
+
+<div class="avatar">
+    <img src="~/Content/avatar.jpg" />
+</div>

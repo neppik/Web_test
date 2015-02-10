@@ -1,0 +1,32 @@
+﻿@model UserListDemo.Models.UserModel
+
+@{
+    ViewBag.Title = "Edit user from DB";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2>@Html.ActionLink("Edit User", "Update", "Users", new  {id = Model.ID }, null)</h2>
+                <h1>@Model.FName @Model.LName</h1>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<div class="edituser">
+    @Html.Label("First Name")
+    @Model.FName
+    @Html.Label("Last Name")
+    @Model.LName
+    @Html.LabelFor(x => x.Email)
+    @Model.Email
+    @Html.LabelFor(x => x.Phone)
+    @Model.Phone
+    @Html.LabelFor(x => x.Age)
+    @Model.Age
+</div>
+
+<div class="avatar">
+    <img src="~/Content/avatar.jpg" />
+</div>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<UserListDemo.Models.UserModel>
+
+@{
+    ViewBag.Title = "Users list from DB";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>You are seeing list of users</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<div class="userlist">
+
+    @foreach (var item in Model)
+    {
+        var fullName = @item.FName + " " + @item.LName;
+        <div class="user">
+
+            <h1>@Html.ActionLink(fullName, "ShowUser", "Users", new { usrID = @item.ID }, null)</h1>
+            <p>
+                <span>Email: </span><a href="mailto:@item.Email">@item.Email</a><br />
+                <span>Phone: </span>@item.Phone<br />
+                <span>Age: </span>@item.Age<br />
+            </p>
+        </div>
+    }
+</div>

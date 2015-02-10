@@ -1,0 +1,35 @@
+﻿@model UserListDemo.Models.UserModel
+
+@{
+    ViewBag.Title = "Edit user";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2>Editing User:</h2>
+                <h1>@Model.FName @Model.LName</h1>
+            </hgroup>
+        </div>
+    </section>
+}
+
+@using (Html.BeginForm("Index", "Users", FormMethod.Post, new { @class = "edituser" }))
+{
+    @Html.LabelFor(x => x.FName)
+    @Html.TextBoxFor(x => x.FName)
+    @Html.LabelFor(x => x.LName)
+    @Html.TextBoxFor(x => x.LName)
+    @Html.LabelFor(x => x.Email)
+    @Html.TextBoxFor(x => x.Email)
+    @Html.LabelFor(x => x.Phone)
+    @Html.TextBoxFor(x => x.Phone)
+    @Html.LabelFor(x => x.Age)
+    @Html.TextBoxFor(x => x.Age)
+
+    <input type="submit" name="edit" value="Save data" />
+}
+
+<div class="edituser">
+    <img src="~/Content/avatar.jpg" />
+</div>
