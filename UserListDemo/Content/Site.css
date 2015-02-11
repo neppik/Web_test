@@ -771,9 +771,14 @@ tr.pager td {
     float: left;
 }
 
-.user h1, .user h1 a, .user h1 a:link, .user h1 a:hover, .user h1 a:visited {
+.user h1, .user h1 a, .user h1 a:link, .user h1 a:visited {
     font-weight:bold;
     color: white;
+    text-decoration: none;
+}
+
+.user h1 a:hover {
+    text-decoration: dotted;
 }
 
 .user span{

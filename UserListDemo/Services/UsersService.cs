@@ -89,11 +89,15 @@ namespace UserListDemo.Services
                 cmd.Parameters.Add(new SqlParameter("LastName", usr.LName));
                 cmd.Parameters.Add(new SqlParameter("FirstName", usr.FName));
                 cmd.Parameters.Add(new SqlParameter("Email", usr.Email));
-                cmd.Parameters.Add(new SqlParameter("Phone", usr.Phone));
+                cmd.Parameters.Add(new SqlParameter("Phone", NullToEmpty(usr.Phone)));
                 cmd.Parameters.Add(new SqlParameter("Age", usr.Age));
 
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public string NullToEmpty(string c) {
+            return (c == null) ? "" : c;
         }
 
         public UserModel GetUserById(int usrId)

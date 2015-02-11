@@ -34,11 +34,12 @@
     <input type="submit" name="edit" value="Save data" />
 }
 
-@using (Html.BeginForm("Delete", "Users", FormMethod.Post)) { 
-    @Html.HiddenFor(x => x.ID)
-    <input type="submit" name="edit" value="Delete" />
-}
-
 <div class="avatar">
     <img src="~/Content/avatar.jpg" />
 </div>
+
+@using (Html.BeginForm("Delete", "Users", FormMethod.Post, new { @class = "edituser" }))
+{
+    @Html.HiddenFor(x => x.ID)
+    <input type="submit" name="delete" id="delete" value="Delete" />
+}
